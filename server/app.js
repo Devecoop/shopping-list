@@ -45,16 +45,45 @@ app.get('/', function(req, res){
 
 /** Simple product service to expose as a rest api */
 var productService = {
-    products: [],
+    products: {},
+
     // Return all products from this service
     find: function(params, callback) {
-        callback(null, this.products);
+        var products = [];
+        Object.keys(this.products).forEach(function(id) {
+            products.push(this.products[id]);
+        }, this);
+        callback(null, products);
     },
+
     // Create a new Product with the given data
     create: function(data, params, callback) {
-        data.id = this.products.length;
-        this.products.push(data);
+        var id = Object.keys(this.products).length || 1;
+        data.id = id;
+        this.products[id] = data;
         callback(null, data);
+    },
+
+    // Retrieve a product by id
+    get: function(id, params, callback) {
+        id = parseInt(id, 10);
+        var product = this.products[id];
+        if (product) {
+            callback(null, product);
+        } else {
+            callback('Cannot get the product');
+        }
+    },
+
+    update: function(id, data, params, callback) {
+        id = parseInt(id, 10);
+        if (this.products[id]) {
+            data.id = id;
+            this.products[id] = data;
+            callback(null, data);
+        } else {
+            callback('Cannot get the product');
+        }
     }
 };
 
