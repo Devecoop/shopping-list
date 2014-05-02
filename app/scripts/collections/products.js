@@ -11,7 +11,8 @@ function( Backbone, Product ) {
 			console.log("initialize a Products collection");
 		},
 
-		model: Product
+		model: Product,
+        url: '/api/products'
 		
 	});
 });
