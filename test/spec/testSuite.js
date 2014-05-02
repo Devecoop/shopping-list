@@ -5,7 +5,8 @@ define(function() {
 	return {
 		specs: ['spec/collections/products.js',
 		'spec/exampleTest.js',
-		'spec/models/product.js'
+		'spec/models/product.js',
+		'spec/views/home.js'
 		]
 	};
 });
