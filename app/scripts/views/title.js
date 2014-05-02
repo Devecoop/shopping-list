@@ -1,15 +1,15 @@
 'use strict';
 define(function(require) {
     var Backbone = require('backbone'),
-        HomeTpl = require('hbs!tmpl/home');
+        TitleTpl = require('hbs!tmpl/title');
 
-	return Backbone.View.extend({
+	return Backbone.Marionette.View.extend({
 		initialize: function() {
-			console.log("initialize a Home View");
+			console.log("initialize a Title View");
 		},
 
         render: function() {
-            this.$el.html(HomeTpl());
+            this.$el.html(TitleTpl());
             return this;
         }
 	});
