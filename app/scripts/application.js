@@ -1,10 +1,7 @@
-define([
-	'backbone',
-	'communicator',
-	'hbs!tmpl/welcome'
-],
-
-function( Backbone, Communicator, Welcome_tmpl ) {
+define(function(require) {
+    var Backbone = require('backbone'),
+        Communicator = require('communicator'),
+        Welcome_tmpl = require('hbs!tmpl/welcome');
     'use strict';
 
 	var welcomeTmpl = Welcome_tmpl;
