@@ -4,6 +4,9 @@ var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
 
+var port = 9000,
+    apiPort = 9009;
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -82,7 +85,7 @@ module.exports = function (grunt) {
         express: {
             options: {
                 // Override defaults here
-                port: '9000'
+                port: port
             },
             dev: {
                 options: {
@@ -298,7 +301,7 @@ module.exports = function (grunt) {
             'connect:testserver',
             'express:dev',
             'exec',
-            'open',
+            //'open',
             'watch'
         ]);
     });
