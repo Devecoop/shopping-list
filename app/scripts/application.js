@@ -4,18 +4,10 @@ define(function(require) {
         Communicator = require('communicator'),
         TitleView = require('views/title'),
         ProductsView = require('views/products'),
-        HomeTpl = require('hbs!tmpl/home');
+        MainLayout = require('views/layout/main');
 
 	var App = new Backbone.Marionette.Application();
 
-    var MainLayout = Backbone.Marionette.Layout.extend({
-        template: HomeTpl,
-        regions: {
-            title: '#home-title',
-            contents: '#home-contents'
-        }
-    });
-    
 	/* Add application regions here */
 	App.addRegions({
         mainRegion: '#main-region'

@@ -16,7 +16,10 @@ function( Backbone, MainTmpl  ) {
     	
 
     	/* Layout sub regions */
-    	regions: {},
+    	regions: {
+            title: '#home-title',
+            contents: '#home-contents'
+        },
 
     	/* ui selector cache */
     	ui: {},
