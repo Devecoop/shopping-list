@@ -45,7 +45,16 @@ app.get('/', function(req, res){
 
 /** Simple product service to expose as a rest api */
 var productService = {
-    products: {},
+    products: {
+        1: {
+            name: "tomates",
+            quantity: 3
+        },
+        2: {
+            name: "papas",
+            quantity: 5
+        }
+    },
 
     // Return all products from this service
     find: function(params, callback) {
