@@ -17,6 +17,9 @@ require.config({
         bootstrap: {
             deps: ['jquery'],
             exports: 'jquery'
+        },
+        xeditable: {
+            deps: ['jquery']
         }
     },
 
