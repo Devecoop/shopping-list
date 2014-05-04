@@ -58,7 +58,7 @@ var productService = {
 
     // Create a new Product with the given data
     create: function(data, params, callback) {
-        var id = Object.keys(this.products).length || 1;
+        var id = Object.keys(this.products).length + 1;
         data.id = id;
         this.products[id] = data;
         callback(null, data);
