@@ -30,6 +30,10 @@ function( Backbone, ProductitemTmpl  ) {
 
         onEditedName: function(e, params) {
             console.log('Saving name: %s', params.newValue);
+            this.model.set('name', params.newValue);
+            this.model.save().done(function() {
+                console.log('Model has been saved!');
+            });
         }
 	});
 
