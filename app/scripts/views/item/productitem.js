@@ -24,7 +24,12 @@ function( Backbone, ProductitemTmpl  ) {
 
 		/* on render callback */
 		onRender: function() {
-            this.$el.find('a#name').editable();
+            this.$el.find('a#name').editable().on('save', this.onEditedName);
+        },
+
+
+        onEditedName: function(e, params) {
+            console.log('Saving name: %s', params.newValue);
         }
 	});
 
