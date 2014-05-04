@@ -60,7 +60,9 @@ var productService = {
     find: function(params, callback) {
         var products = [];
         Object.keys(this.products).forEach(function(id) {
-            products.push(this.products[id]);
+            var p = this.products[id];
+            p.id = id;
+            products.push(p);
         }, this);
         callback(null, products);
     },
@@ -68,8 +70,8 @@ var productService = {
     // Create a new Product with the given data
     create: function(data, params, callback) {
         var id = Object.keys(this.products).length + 1;
-        data.id = id;
         this.products[id] = data;
+        data.id = id;
         callback(null, data);
     },
 
@@ -78,6 +80,7 @@ var productService = {
         id = parseInt(id, 10);
         var product = this.products[id];
         if (product) {
+            product.id = id;
             callback(null, product);
         } else {
             callback('Cannot get the product');
@@ -87,7 +90,6 @@ var productService = {
     update: function(id, data, params, callback) {
         id = parseInt(id, 10);
         if (this.products[id]) {
-            data.id = id;
             this.products[id] = data;
             callback(null, data);
         } else {
