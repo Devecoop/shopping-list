@@ -21,8 +21,9 @@ function( Backbone, Productitem, ProductslistTmpl  ) {
     	/* ui selector cache */
     	ui: {},
 
-    	/* where are we appending the items views */
-    	itemViewContainer: "",
+    	/* where are we appending the items views, see
+         * templates/composite/productslist_tmpl.hbs */
+        itemViewContainer: "#products-container",
 
 		/* Ui events hash */
 		events: {},

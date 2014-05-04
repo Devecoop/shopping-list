@@ -3,8 +3,9 @@ define(function(require) {
     var Backbone = require('backbone'),
         Communicator = require('communicator'),
         TitleView = require('views/title'),
-        ProductsView = require('views/products'),
-        MainLayout = require('views/layout/main');
+        ProductsListView = require('views/composite/productslist'),
+        MainLayout = require('views/layout/main'),
+        ProductsCollection = require('collections/products');
 
 	var App = new Backbone.Marionette.Application();
 
@@ -22,7 +23,13 @@ define(function(require) {
         App.mainRegion.show(mainLayout);
 
         mainLayout.title.show(new TitleView());
-        mainLayout.contents.show(new ProductsView());
+
+        var collection = new ProductsCollection();
+        collection.fetch().done(function() {
+            mainLayout.contents.show(new ProductsListView({
+                collection: collection
+            }));
+        });
     
 
 	});
