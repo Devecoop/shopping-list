@@ -6,7 +6,9 @@ define(function() {
 		specs: ['spec/collections/products.js',
 		'spec/exampleTest.js',
 		'spec/models/product.js',
+		'spec/views/composite/productslist.js',
 		'spec/views/home.js',
+		'spec/views/item/productitem.js',
 		'spec/views/layout/main.js'
 		]
 	};
