@@ -1,6 +1,7 @@
 define([
 	'backbone',
-	'hbs!tmpl/item/productitem_tmpl'
+	'hbs!tmpl/item/productitem_tmpl',
+    'xeditable'
 ],
 function( Backbone, ProductitemTmpl  ) {
     'use strict';
@@ -22,7 +23,9 @@ function( Backbone, ProductitemTmpl  ) {
 		events: {},
 
 		/* on render callback */
-		onRender: function() {}
+		onRender: function() {
+            this.$el.find('a#name').editable();
+        }
 	});
 
 });
