@@ -43,7 +43,9 @@ require.config({
         /* require handlebars plugin - Alex Sexton */
         i18nprecompile: '../bower_components/require-handlebars-plugin/hbs/i18nprecompile',
         json2: '../bower_components/require-handlebars-plugin/hbs/json2',
-        hbs: '../bower_components/require-handlebars-plugin/hbs'
+        hbs: '../bower_components/require-handlebars-plugin/hbs',
+
+        xeditable: '../bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable'
     },
 
     hbs: {
