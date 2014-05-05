@@ -69,6 +69,25 @@ module.exports = function (grunt) {
                     port: 1234,
                     base: '.'
                 }
+            },
+            dist: {
+                options: {
+                    port: port,
+                    base: 'dist',
+                    middleware: function (connect, options) {
+                        var proxy = require('grunt-connect-proxy/lib/utils').proxyRequest;
+                        return [
+                            // Include the proxy first
+                            proxy,
+                            mountFolder(connect, yeomanConfig.dist)
+                        ];
+                    },
+                },
+                proxies: [{
+                    context: ['/api'],
+                    host: 'localhost',
+                    port: apiPort
+                }]
             }
         },
 
@@ -290,7 +309,12 @@ module.exports = function (grunt) {
 
         // what is this??
         if (target === 'dist') {
-            return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+            return grunt.task.run([
+                'build',
+                //'open',
+                'configureProxies:dist',
+                'connect:dist:keepalive'
+            ]);
         }
 
         grunt.option('force', true);
