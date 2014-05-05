@@ -274,7 +274,8 @@ module.exports = function (grunt) {
                         '*.{ico,txt}',
                         '.htaccess',
                         'images/{,*/}*.{webp,gif}',
-                        'bower_components/requirejs/require.js'
+                        'bower_components/requirejs/require.js',
+                        'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*',
                     ]
                 }]
             }
